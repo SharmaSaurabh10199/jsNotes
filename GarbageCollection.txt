@@ -1,0 +1,16 @@
+        Garbage Collection
+1) Garbage collection is performed automatically. We cannot force or prevent it.
+2) Objects are retained in memory while they are reachable.
+3) Being referenced is not the same as being reachable (from a root): a pack of interlinked
+4) objects can become unreachable as a whole.
+5) Modern engines implement advanced algorithms of garbage collection.    
+
+      Coding example:
+      let user={
+        name: 'sonu',
+        age: 23,
+      }
+
+      user=null;
+
+ # now the reference is lost to the object created, we cannot reach it, its unreachable hence it is garbage collected.     

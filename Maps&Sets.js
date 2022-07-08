@@ -126,7 +126,7 @@ function uniqueEle(arr){
 }
 
 /*
-Write a function aclean(arr) that returns an array cleaned from anagrams.
+2)  Write a function aclean(arr) that returns an array cleaned from anagrams.
 
 
 let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
@@ -142,15 +142,40 @@ function aclean(arr){
 }
 console.log(aclean(["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"]));
 
+
+/*
+3) We’d like to get an array of map.keys() in a variable and then do apply array-specific methods
+to it, e.g. .push .
+But that doesn’t work:
+*/
 let map = new Map();
 map.set("name", "John");
 
 let keys = map.keys();
+
+// here map.keys returs an iterable, not an array. 
 console.log(typeof keys);
 // Error: keys.push is not a function
 keys.push("more");
 
 
+//=========WeakMaps and WeakSets======
+
+//-------WeakMaps--------
+
+/*WeakMap is Map -like collection that allows only objects as keys and removes them together
+with associated value once they become inaccessible by other means. */
 
 
+//------weakSets----------
 
+/*
+WeakSet is Set -like collection that stores only objects and removes them once they become
+inaccessible by other means.
+*/
+
+/*
+WeakMap and WeakSet are used as “secondary” data structures in addition to the “main”
+object storage. Once the object is removed from the main storage, if it is only found as the key of
+WeakMap or in a WeakSet , it will be cleaned up automatically.
+*/
