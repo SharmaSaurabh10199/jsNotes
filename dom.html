@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top{
+            background-color: green;
+            color: white;
+        }
+        .item-list{
+            /* width: 800px;
+            
+            height: 700px; */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h2 id="heading">Item Listner</h2>
+    </div>
+    <div class="container">
+        <h3 class="title">Add items</h3>
+        <input type="text">
+        <input type="submit" value="submit" id="submit">
+        <h3>Items</h3>
+        <ul id="items" class="item-list">
+            <li class="item-group-list">
+                <ul class="embeded-child">
+                    <li>inner-item</li>
+                </ul>
+
+            </li>
+            <li class="item-group-list" id="2">item2</li>
+            <li class="item-group-list">item3</li>
+            <li class="item-group-list">item4</li>
+        </ul>
+    </div>
+    <script src="localAndSessionStorage.js"></script>
+</body>
+</html>

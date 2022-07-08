@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+     <p>Textfield</p>
+     <input type="text" name="" id="txt">
+     <p>Description</p>
+     <input type="text" name="" id="description">
+     <button type="submit" id="submit">Submit</button>
+
+    <script>
+        document.getElementById('submit').addEventListener('click',function(e){
+            e.preventDefault();
+            let inp= document.getElementById('txt').value;
+            if(inp==''){
+                alert('input cannot be empty')
+            }
+            else{
+                for(let i=0; i<inp.length; i++){
+                    if(!isNaN(inp[i])){
+                        alert('no integer allowed')
+                    }
+                }
+            }
+            let dec= document.getElementById('description').value;
+            if(dec===''){
+                alert('description cannot be empty');
+            }
+            else if(!isNaN(dec[0])){
+                alert('first char should be alphabet')
+            }
+            let countNum=0;
+            for(let i=0; i<dec.length; i++){
+                    if(!isNaN(inp[i])){
+                       countNum++;
+                    }
+                }
+
+                if(countNum==0){
+                    alert('you should use atleast a number')
+                }
+
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // let str='javascript';
+        // let rev= str.split('').reverse().join('');
+        // console.log(rev);
+
+        // var arr = [1, 2, 5, 10, 20];
+        // let sum = arr.reduce(function (prev, curr) {
+        //     return prev + curr;
+        // }, 0)
+        // console.log(sum);
+
+
+
+        // var printMethod = {
+
+        //     hello: "world",
+
+        //     func: function () {
+
+        //         var self = this;
+
+        //         console.log("First Output : this.hello = " + this.hello);
+
+        //         console.log("Second output: self.hello = " + self.hello);
+
+        //         (function () {
+
+        //             console.log("Third Output: this.hello = " + this.hello);
+
+        //             console.log("Fourth output: self.hello = " + self.hello);
+
+        //         }());
+
+        //     }
+
+        // };
+
+        // printMethod.func();
+        // // op: First Output : this.hello = world
+        // // world:
+        // // undefined
+        // // undefined
+
+
+
+        // var x = [1, 2, 3, 4, 5];
+
+        // for (let i = 0; i < x.length; i++) {
+
+        //     (function () {
+
+        //         setTimeout(function () {
+
+        //             console.log(x[i]);
+
+        //         }, 1000);
+
+        //     })();
+
+        // }
+
+        // var X = { Foo: 1 };
+
+        // var Output = (function () {
+
+        //     delete X.foo;
+
+        //     return X.foo;
+
+        // }
+
+        // )();
+
+        // console.log(output);
+        // // i=6:
+
+
+        // function higherOrder(callBack){
+        //     callBack();
+        // }
+        // function callBack(){
+        //     console.log('higher order fn')
+        // }
+
+
+    </script>
+</body>
+
+</html>
