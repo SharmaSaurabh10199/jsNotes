@@ -15,7 +15,7 @@ console.log(reg);
 console.log(reg.source);
 // functions to match expressions
 let s = "this is sonu sonu sonu";
-// 1. exec()- function returns an object for a match or null for no match.
+// 1. exec()- function returns an array of the match for a match or null for no match.
 // we can use multiple exec with global flag
 let result = reg.exec(s);
 if (result) {

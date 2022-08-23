@@ -108,7 +108,7 @@ function z(){
     // here since the let is block scoped, a new copy is kept everytime.
      // can we do it using the var only?
      function x(){
-    for(let  i=1; i<=5; i++){
+    for(var i=1; i<=5; i++){
     function close(i){
     setTimeout(function (){
     console.log(i)

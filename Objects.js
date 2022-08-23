@@ -34,7 +34,7 @@ let clone2= Object.assign({},obj);
 
 
 //---using spread operator----------
-// assign and spread operator creates deep copy, i.e if there is a object within the object, the copy created as well as the original object points at same place.
+// assign and spread operator creates shallow copy, i.e if there is a object within the object, the copy created as well as the original object points at same place.
 let clone3= {...obj};
 // clone3 and obj both points to same organization.
 

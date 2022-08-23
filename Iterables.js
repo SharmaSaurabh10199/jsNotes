@@ -29,13 +29,13 @@ function fruitsIterator(values) {
   };
 }
 
-const fruits= fruitsIterator(myArray);
-console.log(fruits.next())
-console.log(fruits.next())
-console.log(fruits.next())
-console.log(fruits.next())
+const fruits = fruitsIterator(myArray);
+console.log(fruits.next());
+console.log(fruits.next());
+console.log(fruits.next());
+console.log(fruits.next());
 // returns done: true;
-console.log(fruits.next())
+console.log(fruits.next());
 
 /* To make the range iterable (and thus let for..of work) we need to add a method to the
 object named Symbol.iterator (a special built-in symbol just for that).
@@ -48,36 +48,34 @@ done=true means that the iteration is finished, otherwise value is the next valu
 
 // Here’s the full implementation for range with remarks:
 
-
 // We want the for..of to work:
 // for(let num of range) ... num=1,2,3,4,5
 let range = {
-from: 1,
-to: 5
+  from: 1,
+  to: 5,
 };
 // 1. call to for..of initially calls this
-range[Symbol.iterator] = function() {
-// ...it returns the iterator object:
-// 2. Onward, for..of works only with this iterator, asking it for next values
-return {
-current: this.from,
-last: this.to,
-// 3. next() is called on each iteration by the for..of loop
-next() {
-// 4. it should return the value as an object {done:.., value :...}
-if (this.current <= this.last) {
-return { done: false, value: this.current++ };
-} else {
-return { done: true };
-}
-}
-};
+range[Symbol.iterator] = function () {
+  // ...it returns the iterator object:
+  // 2. Onward, for..of works only with this iterator, asking it for next values
+  return {
+    current: this.from,
+    last: this.to,
+    // 3. next() is called on each iteration by the for..of loop
+    next() {
+      // 4. it should return the value as an object {done:.., value :...}
+      if (this.current <= this.last) {
+        return { done: false, value: this.current++ };
+      } else {
+        return { done: true };
+      }
+    },
+  };
 };
 // now it works!
 for (let num of range) {
-alert(num); // 1, then 2, 3, 4, 5
+  alert(num); // 1, then 2, 3, 4, 5
 }
-
 
 //---calling an iterator explicitly---------
 
@@ -86,7 +84,7 @@ let str = "Hello";
 // for (let char of str) alert(char);
 let iterator = str[Symbol.iterator]();
 while (true) {
-let result = iterator.next();
-if (result.done) break;
-alert(result.value); // outputs characters one by one
+  let result = iterator.next();
+  if (result.done) break;
+  alert(result.value); // outputs characters one by one
 }
