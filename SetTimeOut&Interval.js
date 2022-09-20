@@ -1,24 +1,24 @@
-// if we want some function to execute after some time, then we call is scheduling
+// if we want some function to execute after some time, then we call it scheduling
 
 //----SetTimeout---------
 
 // allows us to run function once after the interval of time
 
-// syntax: 
+// syntax:
 
-function executeLater(phrase,name){
-    console.log(`${phrase} ${name}`);
+function executeLater(phrase, name) {
+  console.log(`${phrase} ${name}`);
 }
 // general syntax:
 // let timerId = setTimeout(func|code, [delay], [arg1], [arg2],
 // arg1, ag2 are the arguments of function
 
- // wrong!
+// wrong!
 //setTimeout(sayHi(), 1000);
 //  In
-// our case the result of sayHi() is undefined (the function returns nothing), so nothing 
+// our case the result of sayHi() is undefined (the function returns nothing), so nothing
 
-let timerid= setTimeout(executeLater,1000,'hello','john');
+let timerid = setTimeout(executeLater, 1000, "hello", "john");
 
 // cancelling with clearTimeOut
 
@@ -35,8 +35,8 @@ let timerid= setTimeout(executeLater,1000,'hello','john');
 
 // to stop the calls, we use clearInterval
 
-let id= setInterval(()=>console.log('hi'),1000);
-setTimeout(()=>{
-    clearInterval(id);
-},5000);
-
+// it'll stop printing hi after 5s, i.e hi will be printed 5 times.
+let id = setInterval(() => console.log("hi"), 1000);
+setTimeout(() => {
+  clearInterval(id);
+}, 5000);

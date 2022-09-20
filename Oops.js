@@ -33,7 +33,7 @@ function outer(item){
   let obj3={
     name: 'sonu'
     }
-    outer.call(obj,'temp');
+    outer.call(obj3,'temp');
       
 
 
@@ -45,8 +45,10 @@ function outer(item){
 
 
 //-----Singleton objects---------
-//  objects created using object literal are singletons,This means when we made a change in an object, it affects the object entire the script
-// objeacts are stored in key value pair
+//  objects created using object literal are singletons,
+//This means when we made a change in an object,
+// it affects the object entire script
+// objects are stored in key value pair
 let car = {
   name: "maruti",
   speed: 200,
@@ -58,7 +60,10 @@ let car = {
 
 // creating a constructer:
 
-//function constructor lets us have multiple instances of that object. If the change is made to one instance, it will not affect other instances. As we know that the constructor is essentially a function that acts as a blueprint for creating objects. A convention for declaring constructors is always to capitalize its function name.
+//function constructor lets us have multiple instances of that object. If the change is made to one instance, 
+//it will not affect other instances. As we know that the constructor is essentially 
+//a function that acts as a blueprint for creating objects. A convention for declaring constructors is
+//always to capitalize its function name.
 function GeneralCar(name, speed) {
   (this.name = name),
     (this.topspeed = speed),
@@ -73,7 +78,7 @@ function GeneralCar(name, speed) {
       return this.convertible;
     }
 }
-car1 = new GeneralCar("nissan", 180);
+let car1 = new GeneralCar("nissan", 180);
 console.log(car1);
 
 //------------------Prototype and prototypal inheritance--------
@@ -162,7 +167,8 @@ console.log(filter);
     }
   }
   //  an object has the access to various propertis which we have not even defined.
-  // def: js attaches an object to your object/function  which has the access to various properties which get accesed by the obj we created with the help of that object.
+  // def: js attaches an object to your object/function  which has the access to various properties 
+  //which get accesed by the obj we created with the help of that object.
   // it sees the properties first in the object, if not present, it goes into the 
   // properties of its prototye simiilarly the chan goes on
 

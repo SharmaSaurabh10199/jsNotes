@@ -1,0 +1,232 @@
+---> Functions :
+	- js is a functional programing oriented language. 
+	- being a functional programing lang, it has the following characterstics. 
+
+	---> Higher order functions:
+		- The  function which have  function as an parameter or to return a function. 
+		- Code : 
+
+			function(let a){
+				return function(b){
+					return a+b;
+				}
+			}
+			// the function returns a function.
+
+	---> First class citizens 
+		- this refers  ability of a function to recieve functions as an argument or to return a function. 
+
+	---> Pure functions: 
+		- A pure function always returns same result if same arguments are passed. 
+		- A pure function does not produce any side effects such as network request or data mutation
+		- Code (pure funcion):
+			function calculateGST( productPrice ) {
+				return productPrice*(0.5);
+    	
+			}
+
+			// impure functions:
+			int data=20;
+			function impure(let x){
+				return x*data;
+			}
+
+		- printing data, making http requests dom manipulation, getting current time are considered as side effects,
+		  so are impure functions.
+
+---> Type of functions:
+	- conventional functiona.
+
+	---> Arraow functions : 
+		- syntax: 
+			let add= (a,b)=> a+b;
+
+		---> Properties:
+			- Arraow functions dont have this keyword.
+				- but why?
+				  - there are instances where we want to write a code which will be executed somewhere else.
+				  - in those situations we dont want to loose the execution context of parent function,
+				    there we use arror functions ex: arr.forEach(funcion). 
+				  - Code :
+
+				  		let user={
+						    title: "our group",
+						    names: ['ajay', "vijay", "pramod"],
+						    printNames(){
+						        this.names.forEach(
+						            student=> console.log(this.title+ ":"+ student)
+						        )               
+						    }
+						}
+
+						user.printNames();
+
+				    OP: 
+				    our group:ajay
+					our group:vijay
+					our group:pramod
+
+					// here we the op cus the this in the forEach refers to the same as in printNames.
+
+
+					  let user={
+						    title: "our group",
+						    names: ['ajay', "vijay", "pramod"],
+						    printNames(){
+						        this.names.forEach(function(student){
+						        	// Error: Cannot read property 'title' of undefined
+						               console.log(this.title+ ":"+ student)
+						        });              
+						    }
+						}
+
+						user.printNames();
+
+						OP:
+
+						undefined: John
+						undefined: Pete
+						undefined: Alice
+				    		
+				        // here by default this is undefined.
+
+			- Since arrow functiosn dont have this keyword, they cant be used as constructers;
+			- arrow function also dont have the ARGUMENSTS varialbe unlike the regular functions. 
+			- Arrow functions cannot use the super keyword in classes.	
+
+
+	---> iife( imidiately invoked function expression)
+		- the functions are executed imidiately after the definition.
+		- syntax: 
+			(function add(){
+				console.log("adding");
+			})();
+
+	---> Callback functions : 
+		- callback function are the functions which are passed inside a function as arguments as parameter,
+		  and thn called in parent function to perform some specific task.
+
+		  Code : 
+		  	function greeting(name) {
+			  alert(`Hello, ${name}`);
+			}
+
+			function processUserInput(callback) {
+			  const name = prompt("Please enter your name.");
+			  callback(name);
+			}
+
+			processUserInput(greeting);
+
+	    - callback functions are mostly used in async programing: 
+	    
+
+
+
+
+
+
+---> Rest and spread parameters :
+	---> Rest Operator 
+		- In javaScript, functions can be called with any no of parameters. 
+		- Code : 
+			function add(a,b){
+				return a+b
+			}
+
+			add(1,2,3,4)
+
+			OP: 
+			3
+			it considers only the first ones. 
+
+
+			function sum(...args){
+				let sum=0;
+				for(let val of args){
+					sum+=val;
+				}
+				return sum;
+			}
+
+			sum(1);
+			sum(1,2);
+			sum(1,2,3);
+
+
+			OP:
+			1
+			3
+			6
+			// the args acts as an araay.
+
+		- rest operator must be at the end in function, else it will show the error.
+
+	---> Argumenst varialbe in the functions
+		- It is a special array like object which conatain all the argumensts by their index. 
+		- code: 
+			 function showName() {
+				alert( arguments.length );
+				alert( arguments[0] );
+				alert( arguments[1] );
+				// it's iterable
+				// for(let arg of arguments) alert(arg);
+				}
+				// shows: 2, Julius, Caesar
+				showName("Julius", "Caesar");
+				// shows: 1, Ilya, undefined (no second argument)
+				showName("Ilya");
+
+		- Arrrow functions dont have the arguments variable
+
+
+	---> spread opreator:
+		- it is used to expand the iterable object. 
+		- code :
+			let arr=[1,2,3];
+			let brr=[4,5,6];
+
+			let merged=[...arr,...brr];
+			console.log(merged);
+
+			op: 
+
+			[1,2,3,4,5,6];
+
+
+---> Function expression vs function declaration :
+	- function declaration: 
+	- code :
+		function add(a,b){
+			return a+b;
+		}
+
+	- function expression: 
+	- code :
+		let sum= function(a,b){
+			return a+b;
+
+		};
+
+	--> Differences :
+	- the one major diff is thst function declarations are hoised, but function expressions are not,
+	  which means that we call a function before its function expression and vice versa for declaration. 
+
+	- One subtle diff is that we put ; (semicolon ) expression as it is considered as an assignment but we,
+	  dont do that in declaration. 
+
+---> Annonymous funcrtions: 
+	- The functions that dont have a name are called anonymous functions.
+	- They are acccesed by the variable they are stored in. 
+	- code : 
+		let add=function (a,b){
+			return a+b;
+		}
+
+	- arrow functions are also anonymous functions 
+	- code : 
+		let add=(a,b)=> a+b;
+
+---> Call, Bind , Apply:
+	- Call: 
+	

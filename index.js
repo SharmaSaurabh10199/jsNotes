@@ -13,7 +13,6 @@
 // }
 // // x();
 
-
 // // let list ={
 // //     value: 1,
 // //     next: {
@@ -32,7 +31,7 @@
 // //     if(list==null){
 // //         return;
 // //     }
-    
+
 // //     printList(list.next);
 // //     console.log(list.value);
 // // }
@@ -54,32 +53,30 @@
 // let user={
 //     firstname: 'saurabh',
 //     lastname: 'sharma',
-    
+
 //     }
 //     function printfullname (){
 //      console.log(this.firstname+" "+this.lastname);
 //     }
-    
+
 //     /* user.printfullname(); */
-    
+
 //     let user2={
 //     firstname: 'sachin',
 //     lastname: 'tendulkar',
 //     }
 //     // now how if want to print the fullname, name2 doesn't have any methd.
-    
+
 //     // call is simply the function borrowing.
 //     /* printfullname.call(user); */
-    
+
 //     // we can have more parameters in function and the arguments could be passed from call.
-    
-    
+
 //     function printDetails (hometown){
 //      console.log(this.firstname+" "+this.lastname+'from'+this.hometown);
 //     }
-    
-//     // printDetails(user,'delhi');
 
+//     // printDetails(user,'delhi');
 
 //     // console.log(Array);
 
@@ -95,8 +92,8 @@
 //     // Array.prototype.map=function(){
 //     //     console.log('newly added function');
 //     //    };
-//   //  console.dir(array);   
-// //    array.map(); 
+//   //  console.dir(array);
+// //    array.map();
 
 // let obj={
 //     name:'sonu'
@@ -115,7 +112,7 @@
 //   }
 //  let myArr= array.myMap(function(e){
 //     return 2*e;
-//  }) 
+//  })
 // //  console.log(myArr);
 
 //  Array.prototype.myFilter= function(callback){
@@ -124,16 +121,15 @@
 //       if(callback(this[i],i,this)){
 //         arr.push(this[i]);
 //       }
-      
+
 //     }
 //     return arr;
 //   }
 
 // let filter= array.myFilter(function(elem){
 //     return elem>1;
-// })  
+// })
 // // console.log(filter);
-
 
 // function findCost(n) {
 //   // write code here
@@ -149,23 +145,21 @@
 
 // console.log(findCost(7));
 
-
-
 // feching data.
 
-async function getData(){
-  const container= document.querySelector('.container');
+async function getData() {
+  const container = document.querySelector(".container");
   // const tableBody= document.querySelector('tbody');
-  let data = await  fetch('https://jsonplaceholder.typicode.com/todos/');
+  let data = await fetch("https://jsonplaceholder.typicode.com/todos/");
 
-  let temp= await data.json();
-  let html='';
-  temp.forEach(function(elem){
-    const {userId, id,title,completed}=elem;
-    html+=`<h3>userId:${userId}</h3><p>id: ${id}</p><p>title: ${title}</p><p>Completed: ${completed}</p>`
-  })
+  let temp = await data.json();
+  let html = "";
+  temp.forEach(function (elem) {
+    const { userId, id, title, completed } = elem;
+    html += `<h3>userId:${userId}</h3><p>id: ${id}</p><p>title: ${title}</p><p>Completed: ${completed}</p>`;
+  });
 
-  container.innerHTML=html;
+  container.innerHTML = html;
   console.log(container);
   // container.innerHTML= temp;
   // console.log();
@@ -173,40 +167,33 @@ async function getData(){
 
 // getData();
 
-// search, detele, modify, 
-
+// search, detele, modify,
 
 // [1,2,1,3,1,4,5,1,1,6]
 // the most frequent number in the array.
-let arr=  [1,2,2,3,2,4,5,1,1,6];
-let obj={
+let arr = [1, 2, 2, 3, 2, 4, 5, 1, 1, 6];
+let obj = {};
 
-};
-
-for(let key of arr){
+for (let key of arr) {
   // console.log(key);
   // avoid using .key here.
-  if(obj[key]===undefined){
-    obj[key]=1
-    
-  }
-  
-  else{
+  if (obj[key] === undefined) {
+    obj[key] = 1;
+  } else {
     // console.log(obj[key]);
-    obj[key]=obj[key]+1;
-    
-
+    obj[key] = obj[key] + 1;
   }
 }
 console.log(obj);
 
 // 1: 3
 
-let maxKey=0; maxval=-Infinity;
-for(let key in obj){
-  if(obj[key]>maxval){
-    maxval=obj[key];
-    maxKey=key;
+let maxKey = 0;
+maxval = -Infinity;
+for (let key in obj) {
+  if (obj[key] > maxval) {
+    maxval = obj[key];
+    maxKey = key;
   }
 }
-console.log(maxKey,maxval);
+console.log(maxKey, maxval);

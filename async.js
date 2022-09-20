@@ -11,7 +11,8 @@
 //--async tasks
 //---------- callback functions
 /*
-1) functions are first class citizens in js, the function we pass into another function and then call it, is called callback function.
+1) functions are first class citizens in js, the function we pass into another function and then call it,
+is called callback function.
 
 2) due to callback we can do asyn things in js
 */
@@ -43,7 +44,8 @@ one solution is to use the global variable, the other is to use closures for dat
 
 //-----garbage collection and remove eventListners
 /*
-1) the event listners form closures which end up consuming a lot of memory, so it is neccessary to remove eventlistners to free up memory.
+1) the event listners form closures which end up consuming a lot of memory, so it is neccessary to
+ remove eventlistners to free up memory.
 if we remove the event listner, all the variables attached to it will be garbage collected.
 */
 
@@ -72,7 +74,8 @@ if we remove the event listner, all the variables attached to it will be garbage
 */
 
 //---------Starvation------
-// when the microtask queue has a lot of work in it and it deosnt lest the callback fn in callback queue execute is called as starvation.
+// when the microtask queue has a lot of work in it and it deosnt lest the callback fn in callback queue execute
+// is called as starvation.
 
 // console.log(5);
 // function callBack(x){
@@ -102,10 +105,12 @@ function x() {
 /*
 sync: the execution happens line by line in order
 
-Async: Asynchronous programming is different. To make it simple, when JavaScript identifies asynchronous tasks, it'll simply continue the execution of the code, while waiting for these asynchronous tasks to be completed.
+Async: Asynchronous programming is different. To make it simple, when JavaScript identifies asynchronous tasks,
+ it'll simply continue the execution of the code, while waiting for these asynchronous tasks to be completed.
 # example of ordering 2 thngs at the coffee shop
 
-higher order function: the function having anothe function as argument(apne ander) or return function  is called the higher order function.
+higher order function: the function having anothe function as argument(apne ander) or return function 
+is called the higher order function.
 
 ex code for syn callback */
 function synCallBack(callBack) {
@@ -186,41 +191,36 @@ Aysnc and await: i'll execute when im ready.
 
 */
 async function doSomething(url) {
-  console.log('inside the function')
-  let responce= await fetch(url)
-  console.log('in between 2 promises');
+  console.log("inside the function");
+  let responce = await fetch(url);
+  console.log("in between 2 promises");
 
-  let data= await responce.text();
-  console.log('after both the calls')
+  let data = await responce.text();
+  console.log("after both the calls");
   return data;
 }
-doSomething('functions.html').then(e=>console.log(e))
-console.log('after promises');
+doSomething("functions.html").then((e) => console.log(e));
+console.log("after promises");
 
+(function () {
+  setTimeout(() => console.log(1), 2000);
 
-(function(){
-
-  setTimeout(()=> console.log(1),2000);
-  
   console.log(2);
-  
-  setTimeout(()=> console.log(3),0);
-  
+
+  setTimeout(() => console.log(3), 0);
+
   console.log(4);
-  
-  })();
-  // op: 2,4 3 1 
+})();
+// op: 2,4 3 1
 
-  // add 2 numbers
+// add 2 numbers
 
-  function add(a){
-    return function(b){
-      return a+b;
-    }
-  }
+function add(a) {
+  return function (b) {
+    return a + b;
+  };
+}
 
-  add(function(){
-    
-  })
+add(function () {});
 
-  let num= add(3)(4);
+let num = add(3)(4);

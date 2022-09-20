@@ -1,0 +1,126 @@
+---> Data types:
+    - Two types: primitive, non-primitive.
+    ---> Primitive:
+         - String
+         - Number
+         - Boolean
+         - Symbol
+         - Undefined
+         - null
+
+    ---> Non-Primitive
+         - Arrays
+         - Objects     
+        
+    ---> Numbers:
+        - There exist various important methods for this primitive type:
+        --> Mthods:
+            1)  num.toString(base);
+
+                base: it is the number system to which string needs to be converted;
+                code: 
+                let num= 23;
+                console.log(num.toString());
+
+                OP: 
+                23 (string)
+
+            2)  Math functions: 
+                - Math.floor(num);   
+                - Math.ceil(num);   
+                - Math.round(num);   // rounds off to the nearest integer
+                - num.toFixed(precision);   
+                - Math.max(a,d,f,), Math.min(j,g,h);
+
+            3)  isNaN(arg);
+                - returns true if arg is a number else returns false.
+                - isNaN("2")  -> false
+                - isNaN(NaN)  -> true
+
+            4)  Number(arg)
+                - return the number form of arg.
+                Number("100px") -> NaN   
+
+            5)  parseInt(arg), parseFloat(arg)
+                - converts a string to a number.
+                - parseInt("100px") -> 100.
+
+
+    ---> Strings 
+        - collection of characters
+        ---> Methods:
+            1) String(num) 
+                - converts number to string.
+
+            2) slice(start, end);  
+                - end is not included 
+                code: 
+                let str= "hello javascript";
+                console.log(str.slice(1,3));
+                console.log(str.slice(1));
+                console.log(str.slice(-3,-1));
+
+                Op: 
+                el
+                ello javascript
+                ip
+
+
+            3) substr(start, length)
+                code :
+                let str= "hello javascript";
+                console.log(str.substr(0,2));
+
+                OP:
+                he
+            4) split("regex")
+                - return the array by splitting the string on the basis of delimeter.
+                
+
+    ---> Arrays: 
+        - This data structure is used to store ordered collection
+        - We can store values of any type in it.
+
+        ---> Methods:
+            1) push, pop, shift(remove from brgining), unshift(add to begining);
+            
+            2) splice:
+                - syntax: arr.splice(index, deleteCount, elem1, ..., elemN)
+                - deleteCount no of elements are removed starting from index, and elem1...elemN are added.
+                - it modifies the original Arrays.
+                - returns the array of remo ved elements.
+
+            3) slice:
+                - syntax: arr.slice(start, end)
+                - returns an array with stating from start till end (excluding);
+                - original array is not modified
+
+            4) forEach();
+                - syntax: arr.forEach((elem,idx,array)=>{
+                    // do something
+                })
+            
+            5) map();
+                - syntax: let result= arr.map((item, idx, array)=>{
+                    // return new value instead of item
+                })
+                - it returns an array.
+
+            6) filter();
+                - syntax: let res= arr.filter((item,idx,array)=>{
+                    // return a Boolean for every item;
+                })
+            
+            7) reduce();
+                -syntax: let sum= arr.reduce((prevValue,item,idx,array)=>{
+                    //..computation
+                },initialValue);
+
+            8) sort();
+                - sorts String;
+                - arr.sort((a,b)=> a-b) variation for the numbers.
+            9) reverse()
+                - to reverse the array.
+            
+            10) Array.isArray(arr)
+

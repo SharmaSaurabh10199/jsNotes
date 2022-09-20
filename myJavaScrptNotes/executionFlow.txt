@@ -1,0 +1,95 @@
+# JavaScript is synchronous single threaded language.
+
+---> Execution Context: 
+	- the browsers engine creates the special environment to execute the jc code, this environment is known as execution context.
+
+	- execution context contains the code that is currently running and everything that aids in execution.
+
+	- There are 2 types of execution contexts
+	  GEC(Global execution context)
+	  FEC(function execution context)
+
+	  -- GEC
+	  	- Whenever js engine recievs a file, it creates a default execution context(GEC).
+	  	- This context can have multiple diff contexts
+
+	  --FEC
+	  	- Whenever there a call made to the function, FEC is creted. 
+
+	--> The execution flow:
+		- The creation of an execution context happens in 2 pahses
+			Creation Phase 
+			Execution Phase 
+
+			--> Creation Phase: 
+				- A execution context objected is cretaed which contains a lot of important data 
+				which is used by execution context during run-time.
+				- it has 3 parts:
+				 1 Creation of variable object. 
+				 2 Creation of scope chain
+				 3 setting value of this keyword. 
+
+
+				 --> Creation of Virtual Object(VO):
+				 	- it stores the variable and the functons defined in the execution context. 
+				 	- each variable with var keyword, is set to undefined. 
+
+				 	### Hoisting: 
+				 	- The process of storing the variable and the function declaration in memory prior 
+				 	the execution is called as hpoisting. 
+				 	---> Properties :
+				 		- The hoisting doesnot work in   function expressions. 
+				 		- Let and const variable are hoisted but not assigned default valur of undefined,
+				 		so we get the reference error if we access these variables. 
+
+				 --> Creation of Scope chain :
+				 	- Scope?
+				 		- it basically defines the accessblity of a code
+				 		- each function execution execution creates a scope;
+				 		- The environment where the function and the variable are defied, can be accessed via process called scoping;
+				 		- lexical Scope:
+				 			- The child function have the access of the code defiend in the parent functon,
+				 			this behavious is called a lexical scoping.
+
+				 		- Scope Chain :
+				 		  The js engine traverse up the scope of current execution context to resolve 
+				 		  a variale is called scope chaining;
+
+
+				 --> setting value of this keyword: 
+				 	- This keyword refers to the execution scope where the executio context belongs;
+				 	- In GEC, this refers to the Global object (Window);
+				 	- in functions, it gets the access to the environment it is defined;
+				 		- code : 
+				 			function doSomething(){
+				 				console.log(this.)
+				 			}
+
+				 			// this refers to the global object(window) here.
+				 			let user={
+				 				name: "sonu",
+				 				doSomething: funcion(){
+				 					console.log(this.name);
+				 				}
+				 			}
+
+				 			// here this refers to the user.
+
+
+
+			---> The execution phase: 
+				- It comes after the creation phase is completed;
+				- engine runs first and update s the actual values of the variables which were set to
+				undefied in the creation phase;
+
+				- Execution Stack: 
+					- Aloso called as the callstack
+					- GEC is cretaed as default context where js engine starts exeuting the code;
+					- when ever there are functional calls, it creates a FEC which sits on top 
+					of GEC and becomes the active execution context;
+					- when this top execution context is done executing, it pops out 
+					of the stack and the control goes to the parent execution context;
+
+
+
+

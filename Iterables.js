@@ -1,8 +1,10 @@
 // iterators:
 
-// In JavaScript an iterator is an object which defines a sequence and potentially a return value upon its termination.
+// In JavaScript an iterator is an object which defines a sequence and potentially
+// a return value upon its termination.
 
-// Specifically, an iterator is any object which implements the Iterator protocol by having a next() method that returns an object with two properties:
+// Specifically, an iterator is any object which implements the Iterator protocol by having a next()
+//method that returns an object with two properties:
 // generating a custom iterator:
 
 // Of course, Arrays are iterable. But there are many other built-in objects, that are iterable as well.
